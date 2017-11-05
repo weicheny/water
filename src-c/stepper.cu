@@ -152,7 +152,7 @@ float limdiff(float um, float u0, float up) {
 
 
 // Compute limited derivs
-__global__ static inline
+__device__ static inline
 void limited_deriv1(float* restrict du,
                     const float* restrict u,
                     int ncell)
@@ -163,7 +163,7 @@ void limited_deriv1(float* restrict du,
 
 
 // Compute limited derivs across stride
-__global__ static inline
+__device__ static inline
 void limited_derivk(float* restrict du,
                     const float* restrict u,
                     int ncell, int stride)
@@ -277,7 +277,7 @@ void central2d_correct_sd(float* restrict s,
 
 
 // Corrector
-static
+__global__ static
 void central2d_correct(float* restrict v,
                        float* restrict scratch,
                        const float* restrict u,
